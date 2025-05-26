@@ -1,28 +1,243 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underground Kingdom</title>
+    <style>
+        :root {
+            --black: #111;
+            --white: #fff;
+            --gray-light: #f5f5f5;
+            --gray-mid: #e0e0e0;
+            --gray-dark: #757575;
+            --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--gray-mid);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .auth-link {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .auth-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--black);
+            transition: var(--transition);
+        }
+
+        .auth-link:hover::after {
+            width: 100%;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero {
+            max-width: 720px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            color: var(--gray-dark);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto;
+            text-align: left;
+        }
+
+        .feature {
+            padding: 1.5rem;
+            border: 1px solid var(--gray-mid);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .feature:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-description {
+            color: var(--gray-dark);
+            font-size: 0.9375rem;
+        }
+
+        .cta-section {
+            margin-top: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            background-color: var(--black);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        footer {
+            padding: 2rem;
+            border-top: 1px solid var(--gray-mid);
+            text-align: center;
+            color: var(--gray-dark);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="cards">
-         <h2 class="header">
-            Underground Kingdom
-         </h2>
-         <div class="services">
-            <div class="content content-1">
-               <div class="fab fa-twitter"></div>
-               <h2>
-                  Download
-               </h2>
-               <p>
-                  You can download the game using the link below
-               </p>
-               <a href="Download.html">Read More</a>
+    <header>
+        <a href="/" class="logo">UNDERGROUND KINGDOM</a>
+        <a href="/reg.html" class="auth-link">Вход / Регистрация</a>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h1 class="hero-title">Откройте тайный мир под поверхностью</h1>
+            <p class="hero-subtitle">
+                Underground Kingdom — это закрытое сообщество исследователей подземных пространств,
+                где мы документируем и изучаем скрытые от глаз обывателей места и явления.
+            </p>
+            <a href="/reg.html" class="cta-button">Присоединиться к исследованию</a>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🕳️</div>
+                <h3 class="feature-title">Эксклюзивные материалы</h3>
+                <p class="feature-description">
+                    Доступ к уникальным исследованиям и документации подземных сооружений,
+                    которые не публикуются в открытых источниках.
+                </p>
             </div>
 
-         </div>
-      </div>
+            <div class="feature">
+                <div class="feature-icon">🗺️</div>
+                <h3 class="feature-title">Карты и схемы</h3>
+                <p class="feature-description">
+                    Детализированные карты подземных ходов, бункеров и других сооружений
+                    с возможностью добавления собственных находок.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">👥</div>
+                <h3 class="feature-title">Сообщество</h3>
+                <p class="feature-description">
+                    Общение с единомышленниками, организация совместных экспедиций
+                    и обмен опытом с профессиональными диггерами.
+                </p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <p style="margin-bottom: 1rem; color: var(--gray-dark);">Готовы начать исследование?</p>
+            <a href="/reg.html" class="cta-button">Войти в Underground Kingdom</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Underground Kingdom. Все права защищены.</p>
+    </footer>
 </body>
 </html>
